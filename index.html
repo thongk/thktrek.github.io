@@ -317,7 +317,9 @@
       
         
           
-            <blockquote>
+            <h1 id="利用NSURLProtocol实现远程html加载本地资源"><a href="#利用NSURLProtocol实现远程html加载本地资源" class="headerlink" title="利用NSURLProtocol实现远程html加载本地资源"></a>利用NSURLProtocol实现远程html加载本地资源</h1><p>NSURLProtocol 审核 iOS</p>
+<hr>
+<blockquote>
 <p>如果是本地的<code>html</code>加载本地资源,需要特别注意的事资源的相对路径.本文所并非本地<code>html</code>,但为了加载速度,将一些固定不变的图片和<code>js</code>放在本地的做法.</p>
 </blockquote>
 <p>上一次提交的新app,在苹果审核时候碰到了很多问题,历时一个多月才上架成功.这里遇到的一个最主要的问题是,阿里云在苹果审核环境下访问<code>socket</code>和<code>webView</code>会非常慢,如果容错做的不好的话,很有可能审核人员看到的就是一些一直在loading的白板,最终通过以下两个方案来解决了这个问题:</p>
