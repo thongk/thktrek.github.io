@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="HTML CSS," />
+  <meta name="keywords" content="OC 枚举," />
 
 
 
@@ -84,16 +84,37 @@
 
 
 
-<meta name="description" content="##标签&amp;lt;title&amp;gt; &amp;lt;/title&amp;gt; 标题标签 显示在浏览器选项卡上&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt; 段落标签&amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; &amp;lt;h6&amp;gt;&amp;lt;/h6&amp;gt; 1级标题-6级标题 字号逐渐减小&amp;lt;strong&amp;gt;&amp;lt;/strong&amp;gt; 强调 显示为粗体&amp;lt;em&amp;gt;&amp;lt;/em&amp;gt; 强调 显示为斜体">
+<meta name="description" content="为什么经常有人提到用常量代替宏定义?
+枚举、宏#define和常量const各自适合用在什么情况下?
+NS_ENUM和NS_OPTIONS有什么区别?
+系统经常使用的type = 1 &amp;lt;&amp;lt; 1跟普通的枚举type = 1有什么区别?
+
+
+下面进行一一介绍
+枚举、宏#define和常量const的区别和各自适用情况####宏宏的使用非常简单,在某个头文件中我们只需要这样定义:1#d">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML/CSS笔记">
-<meta property="og:url" content="http://tanghongkang.cn/2016/11/17/HTML-CSS笔记/index.html">
+<meta property="og:title" content="深入理解OC中的枚举,宏和常量">
+<meta property="og:url" content="http://tanghongkang.cn/2017/06/13/深入理解OC中的枚举-宏和常量/index.html">
 <meta property="og:site_name" content="thk'blog">
-<meta property="og:description" content="##标签&amp;lt;title&amp;gt; &amp;lt;/title&amp;gt; 标题标签 显示在浏览器选项卡上&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt; 段落标签&amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; &amp;lt;h6&amp;gt;&amp;lt;/h6&amp;gt; 1级标题-6级标题 字号逐渐减小&amp;lt;strong&amp;gt;&amp;lt;/strong&amp;gt; 强调 显示为粗体&amp;lt;em&amp;gt;&amp;lt;/em&amp;gt; 强调 显示为斜体">
-<meta property="og:updated_time" content="2017-06-08T14:32:10.000Z">
+<meta property="og:description" content="为什么经常有人提到用常量代替宏定义?
+枚举、宏#define和常量const各自适合用在什么情况下?
+NS_ENUM和NS_OPTIONS有什么区别?
+系统经常使用的type = 1 &amp;lt;&amp;lt; 1跟普通的枚举type = 1有什么区别?
+
+
+下面进行一一介绍
+枚举、宏#define和常量const的区别和各自适用情况####宏宏的使用非常简单,在某个头文件中我们只需要这样定义:1#d">
+<meta property="og:updated_time" content="2017-06-14T14:56:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML/CSS笔记">
-<meta name="twitter:description" content="##标签&amp;lt;title&amp;gt; &amp;lt;/title&amp;gt; 标题标签 显示在浏览器选项卡上&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt; 段落标签&amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; &amp;lt;h6&amp;gt;&amp;lt;/h6&amp;gt; 1级标题-6级标题 字号逐渐减小&amp;lt;strong&amp;gt;&amp;lt;/strong&amp;gt; 强调 显示为粗体&amp;lt;em&amp;gt;&amp;lt;/em&amp;gt; 强调 显示为斜体">
+<meta name="twitter:title" content="深入理解OC中的枚举,宏和常量">
+<meta name="twitter:description" content="为什么经常有人提到用常量代替宏定义?
+枚举、宏#define和常量const各自适合用在什么情况下?
+NS_ENUM和NS_OPTIONS有什么区别?
+系统经常使用的type = 1 &amp;lt;&amp;lt; 1跟普通的枚举type = 1有什么区别?
+
+
+下面进行一一介绍
+枚举、宏#define和常量const的区别和各自适用情况####宏宏的使用非常简单,在某个头文件中我们只需要这样定义:1#d">
 
 
 
@@ -121,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://tanghongkang.cn/2016/11/17/HTML-CSS笔记/"/>
+  <link rel="canonical" href="http://tanghongkang.cn/2017/06/13/深入理解OC中的枚举-宏和常量/"/>
 
 
 
 
 
-  <title> HTML/CSS笔记 | thk'blog </title>
+  <title> 深入理解OC中的枚举,宏和常量 | thk'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -238,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://tanghongkang.cn/2016/11/17/HTML-CSS笔记/">
+  <link itemprop="mainEntityOfPage" href="http://tanghongkang.cn/2017/06/13/深入理解OC中的枚举-宏和常量/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="thk">
@@ -262,7 +283,7 @@
             
             
               
-                HTML/CSS笔记
+                深入理解OC中的枚举,宏和常量
               
             
           </h1>
@@ -275,8 +296,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-17T21:39:32+08:00">
-                2016-11-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-13T21:53:37+08:00">
+                2017-06-13
               </time>
             
 
@@ -311,9 +332,30 @@
       
 
       
-        <p>##标签<br><code>&lt;title&gt; &lt;/title&gt;</code> 标题标签 显示在浏览器选项卡上<br><code>&lt;p&gt;&lt;/p&gt;</code> 段落标签<br><code>&lt;h1&gt;&lt;/h1&gt; &lt;h6&gt;&lt;/h6&gt;</code> 1级标题-6级标题 字号逐渐减小<br><code>&lt;strong&gt;&lt;/strong&gt;</code> 强调 显示为<strong>粗体</strong><br><code>&lt;em&gt;&lt;/em&gt;</code> 强调 显示为<em>斜体</em><br><code>&lt;q&gt;&lt;/q&gt;</code> 短文本引用 会给引用内容加上双引号<br><code>&lt;blokquote&gt;&lt;/blockquote&gt;</code> 长本文引用 浏览器解析时候会缩进<br><code>&lt;br/&gt;</code> 换行 空标签 没有<code>HTML</code>内容的标签<br><code>&amp;nbsp;</code> 空格<br><code>&lt;hr/&gt;</code> 水平横线 <code>horizontal</code><br><code>&lt;address&gt;&lt;/address&gt;</code> 地址 解析为斜体<br><code>&lt;code&gt;&lt;/code&gt;</code> 单行代码<br><code>&lt;pre&gt;&lt;/pre&gt;</code> 多行代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;第一项&lt;/li&gt;</div><div class="line">	&lt;li&gt;第二项&lt;/li&gt;</div><div class="line">&lt;/ul&gt;  列表 无序列表</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ol&gt;</div><div class="line">	&lt;li&gt;第一项&lt;/li&gt;</div><div class="line">	&lt;li&gt;第二项&lt;/li&gt;</div><div class="line">&lt;/ol&gt;  列表 有序列表</div></pre></td></tr></table></figure>
-<p><code>&lt;div&gt;&lt;/div&gt;</code> 独立逻辑 板块<br><code>&lt;div  id=&quot;版块名称&quot;&gt;…&lt;/div&gt;</code> 给div命名<br><code>&lt;a href=&quot;www.baidu.com&quot; title=&quot;点击进入首页&quot;&gt;click here!&lt;/a&gt;</code> 超链接<br><code>&lt;a&gt;</code>标签默认在当前窗口打开链接<br>使用<code>&lt;a href=&quot;网址&quot; target=&quot;_blank&quot;&gt;click here</code>在新窗口打开<br><code>&lt;img src=&quot;&quot; alt=&quot;&quot; title=&quot;&quot;&gt;</code> <code>src</code>指向地址 <code>alt</code>占位图片 <code>title</code>鼠标滑过显示的文本</p>
+        <hr>
+<blockquote>
+<ul>
+<li>为什么经常有人提到用常量代替宏定义?</li>
+<li>枚举、宏<code>#define</code>和常量<code>const</code>各自适合用在什么情况下?</li>
+<li><code>NS_ENUM</code>和<code>NS_OPTIONS</code>有什么区别?</li>
+<li>系统经常使用的<code>type = 1 &lt;&lt; 1</code>跟普通的枚举<code>type = 1</code>有什么区别?</li>
+</ul>
+</blockquote>
+<p>下面进行一一介绍</p>
+<h3 id="枚举、宏-define和常量const的区别和各自适用情况"><a href="#枚举、宏-define和常量const的区别和各自适用情况" class="headerlink" title="枚举、宏#define和常量const的区别和各自适用情况"></a>枚举、宏<code>#define</code>和常量<code>const</code>的区别和各自适用情况</h3><p>####宏<br>宏的使用非常简单,在某个头文件中我们只需要这样定义:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define ANIMATION_DURATION 0.3</div></pre></td></tr></table></figure></p>
+<p>然后,在程序的<strong>预处理</strong>阶段,会把所有的<code>ANIMATION_DURATION</code> 替换成<code>0.3</code>.<code>XCode</code>中使用了大量的宏,如<code>PROJECT_DIR</code>,<code>SRCROOT</code>等等.<br>我们也可以把一段代码写成宏,比如自定义<code>LOG</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#ifdef DEBUG</div><div class="line">#define DString [NSString stringWithFormat:@&quot;%s&quot;, __FILE__].lastPathComponent</div><div class="line">#define DLog(...) printf(&quot;%s 第%d行: %s\n\n&quot;, [DString UTF8String] ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);</div><div class="line"></div><div class="line">#else</div><div class="line">#define DLog(...)</div><div class="line">#endif</div></pre></td></tr></table></figure></p>
+<p><a href="http://www.cocoachina.com/ios/20161207/18310.html" target="_blank" rel="external">这里</a>有一些常用宏的定义</p>
+<p>使用得当的宏增加了程序的可读性,但宏的缺点也是显而易见的:</p>
+<blockquote>
+<ul>
+<li>由于对宏的处理发生在预处理阶段,缺乏类型检查,不会执行语法分析和语义分析,这在一定程度上是不安全的</li>
+<li>大量的使用宏会使程序的二进制文件体积变大</li>
+</ul>
+</blockquote>
+<p>####常量<code>const</code><br>我们可以使用常量来避免上面提到的使用宏带来的一些潜在缺点.<br>最常见的例子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">static NSString *const Notification_Login = @&quot;Notification_Login&quot;;</div></pre></td></tr></table></figure></p>
+<p>这样定义的好处,首先是我们定义的常量包含了类型信息,清楚的描述了常量的含义:一个<code>notification name</code>.这里要注意用<code>static</code>修饰常量,而非<code>external</code>,意味着你只能在常量定义的编译单元(一般是<code>.m</code>文件)内使用该常量.<br>笔者在使用常量的时候,会使用<code>className</code> + 名字的方式命名,例如比如创建一个单独的<code>header file</code>,将项目中用到的通知以常量的形式定义,如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">static NSString *const Notification_Login  = @&quot;Notification_Login&quot;;</div><div class="line">static NSString *const Notification_Logout = @&quot;Notification_Logout&quot;;</div><div class="line">static NSString *const Notification_Share_Success = @&quot;Notification_Share_Success&quot;;</div></pre></td></tr></table></figure></p>
+<p>在发送和需要接受的类,都需要先导入该头文件,团队中的每个人都可以通过查看该文件和查找引用该文件的类,清楚知道程序中使用<code>Notification</code>的情况,可以更好的维护项目.同样的,对于<code>API</code>地址,静态页面的<code>url</code>,都可以采用此类方式来定义.</p>
+<p>####枚举<br>在以一系列常量来表示错误状态码或可组合的选项时,极宜使用枚举为其命名.</p>
 
       
     </div>
@@ -337,7 +379,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HTML-CSS/" rel="tag"># HTML CSS</a>
+            <a href="/tags/OC-枚举/" rel="tag"># OC 枚举</a>
           
         </div>
       
@@ -346,15 +388,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/20/利用NSURLProtocol实现远程html加载本地资源/" rel="next" title="利用NSURLProtocol实现html加载本地资源">
+                <i class="fa fa-chevron-left"></i> 利用NSURLProtocol实现html加载本地资源
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/25/JavaScript/" rel="prev" title="JavaScript">
-                JavaScript <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -401,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStgKoI62Mlmt1_SeaC3iApidI9hMik1pN4rXuqrqfBycQFvWgY"
@@ -448,6 +499,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举、宏-define和常量const的区别和各自适用情况"><span class="nav-number">1.</span> <span class="nav-text">枚举、宏#define和常量const的区别和各自适用情况</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
